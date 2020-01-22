@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_NetworkSetup/templates *
+recursive-include octoprint_NetworkSetup/translations *
+recursive-include octoprint_NetworkSetup/static *
