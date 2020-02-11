@@ -41,10 +41,8 @@ $(function() {
      * and a full list of the available options.
      */
     OCTOPRINT_VIEWMODELS.push({
-        construct: NetworksetupViewModel,
-        // ViewModels your plugin depends on, e.g. loginStateViewModel, settingsViewModel, ...
-        dependencies: [ /* "loginStateViewModel", "settingsViewModel" */ ],
-        // Elements to bind to, e.g. #settings_plugin_NetworkSetup, #tab_plugin_NetworkSetup, ...
-        elements: [ /* ... */ ]
+      construct: NetworksetupViewModel,
+      dependencies: ["loginStateViewModel", "settingsViewModel"],
+      elements: ["#tab_plugin_NetworkSetup"]
     });
 });
