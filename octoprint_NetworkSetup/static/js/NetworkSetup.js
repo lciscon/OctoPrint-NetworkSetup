@@ -13,6 +13,21 @@ $(function() {
         // self.settingsViewModel = parameters[1];
 
         // TODO: Implement your plugin's view model here.
+        self.hostname = parameters[0].networksetup_hostname;
+        self.ssid = parameters[0].networksetup_ssid;
+
+        self.ssid_list = ko.observable([
+            {key: "default", name: gettext("default")},
+            {key: "red", name: gettext("red")},
+            {key: "orange", name: gettext("orange")},
+            {key: "yellow", name: gettext("yellow")},
+            {key: "green", name: gettext("green")},
+            {key: "blue", name: gettext("blue")},
+            {key: "violet", name: gettext("violet")},
+            {key: "black", name: gettext("black")},
+            {key: "white", name: gettext("white")},
+        ]);
+
     }
 
     /* view model class, parameters for constructor, container to bind to
