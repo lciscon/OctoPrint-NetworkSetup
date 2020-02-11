@@ -13,8 +13,10 @@ $(function() {
         // self.settingsViewModel = parameters[1];
 
         // TODO: Implement your plugin's view model here.
-        self.hostname = parameters[0].networksetup_hostname;
-        self.ssid = parameters[0].networksetup_ssid;
+//        self.hostname = parameters[0].networksetup_hostname;
+//        self.ssid = parameters[0].networksetup_ssid;
+        self.hostname = "hostname0";
+        self.ssid = "ssid0";
 
         self.ssid_list = ko.observable([
             {key: "default", name: gettext("default")},
