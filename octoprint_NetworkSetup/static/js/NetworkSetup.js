@@ -33,7 +33,7 @@ $(function() {
             {key: "blue", name: gettext("blue")},
             {key: "violet", name: gettext("violet")},
             {key: "black", name: gettext("black")},
-            {key: "white", name: gettext("white")},
+            {key: "white", name: gettext("white")}
         ]);
 
     }
@@ -43,8 +43,8 @@ $(function() {
      * and a full list of the available options.
      */
     OCTOPRINT_VIEWMODELS.push({
-      NetworksetupViewModel,
-      ["settingsViewModel", "controlViewModel", "systemViewModel", "loginStateViewModel", "printerProfilesViewModel"],
-      ["#tab_plugin_NetworkSetup"]
+      construct: NetworksetupViewModel,
+      dependencies: ["settingsViewModel", "controlViewModel", "systemViewModel", "loginStateViewModel", "printerProfilesViewModel"],
+      elements: ["#tab_plugin_NetworkSetup"]
     });
 });
