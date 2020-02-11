@@ -8,9 +8,11 @@ $(function() {
     function NetworksetupViewModel(parameters) {
         var self = this;
 
-        // assign the injected parameters, e.g.:
-        // self.loginStateViewModel = parameters[0];
-        // self.settingsViewModel = parameters[1];
+        self.settings = parameters[0];
+        self.control = parameters[1];
+        self.system = parameters[2];
+        self.loginState = parameters[3];
+        self.printerProfiles = parameters[4];
 
         // TODO: Implement your plugin's view model here.
 //        self.hostname = parameters[0].networksetup_hostname;
@@ -41,8 +43,8 @@ $(function() {
      * and a full list of the available options.
      */
     OCTOPRINT_VIEWMODELS.push({
-      construct: NetworksetupViewModel,
-      dependencies: ["loginStateViewModel", "settingsViewModel"],
-      elements: ["#tab_plugin_NetworkSetup"]
+      NetworksetupViewModel,
+      ["settingsViewModel", "controlViewModel", "systemViewModel", "loginStateViewModel", "printerProfilesViewModel"],
+      ["#tab_plugin_NetworkSetup"]
     });
 });
