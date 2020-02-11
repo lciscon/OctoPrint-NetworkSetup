@@ -15,8 +15,12 @@ $(function() {
         // TODO: Implement your plugin's view model here.
 //        self.hostname = parameters[0].networksetup_hostname;
 //        self.ssid = parameters[0].networksetup_ssid;
-        self.hostname = "hostname0";
-        self.ssid = "ssid0";
+        self.defaultHostname = "hostname0";
+        self.defaultSSID = "ssid0";
+        self.defaultPasskey = "passkey0";
+        self.ssid = ko.observable(self.defaultSSID);
+        self.hostname = ko.observable(self.defaultHostname);
+        self.passkey = ko.observable(self.defaultPasskey);
 
         self.ssid_list = ko.observable([
             {key: "default", name: gettext("default")},
