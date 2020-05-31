@@ -10,6 +10,7 @@ from __future__ import absolute_import
 # Take a look at the documentation on what other plugin mixins are available.
 
 import octoprint.plugin
+import os
 
 class NetworksetupPlugin(octoprint.plugin.SettingsPlugin,
                          octoprint.plugin.AssetPlugin,
@@ -54,6 +55,57 @@ class NetworksetupPlugin(octoprint.plugin.SettingsPlugin,
 				pip="https://github.com/lciscon/OctoPrint-NetworkSetup/archive/{target_version}.zip"
 			)
 		)
+
+
+    def exec_cmd(self, cmd_line):
+        try:
+            r = os.system(cmd_line)
+        except:
+            e = sys.exc_info()[0]
+            self._logger.exception("Error executing command ID %s: %s" % (cmd_id, e))
+            return (None,)
+
+        self._logger.info("Command %s returned: %s" % (cmd_line, r))
+
+        return(r)
+
+    def get_hostname(self):
+        cline = "hostname"
+        r = exec_cmd(cline)
+        return(r)
+
+    def set_hostname(self, newname):
+        cline = "hostname " + newname
+        r = exec_cmd(cline)
+        return(r)
+
+    def get_ssid(self):
+        cline = "netinfo ssid"
+        r = exec_cmd(cline)
+        return(r)
+
+    def set_ssid(self, newname):
+        cline = "netinfo ssid " + newname
+        r = exec_cmd(cline)
+        return(r)
+
+    def get_ssidlist(self):
+        cline = "netinfo ssidlist"
+        r = exec_cmd(cline)
+        return(r)
+
+    def get_passkey(self):
+        cline = "netinfo passkey"
+        r = exec_cmd(cline)
+        return(r)
+
+    def set_ssid(self, newname):
+        cline = "netinfo passkey " + newname
+        r = exec_cmd(cline)
+        return(r)
+
+
+
 
 
 # If you want your plugin to be registered within OctoPrint under a different name than what you defined in setup.py
